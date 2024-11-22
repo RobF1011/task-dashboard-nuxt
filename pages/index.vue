@@ -151,7 +151,15 @@
   const modalRef = ref<InstanceType<typeof Modal> | null>(null);
   const firstInput = ref<HTMLInputElement | null>(null);
 
+  const resetTaskForm = () => {
+    newTaskName.value = '';
+    newTaskDescription.value = '';
+    newTaskAssignee.value = '';
+    newTaskPriority.value = 'High';
+  };
+
   const openNewTaskModal = () => {
+    resetTaskForm();
     modalRef.value?.openModal();
     firstInput.value?.focus();
   }
